@@ -4,6 +4,8 @@ let boxContainer = document.querySelector('.body');
 let easySetting = document.querySelector('.easy');
 let restart = document.querySelector('.restart');
 let hardSetting = document.querySelector('.hard');
+let tries = document.querySelector('.tries');
+let count = 3;
 let div = document.createElement('div');
 div.classList.add('box-grid');
 
@@ -32,6 +34,16 @@ function generateRGB(){
     let boxes = document.querySelectorAll('.box');
     // hide boxes on easy mode
     hideBoxes();
+    // reset count
+    count = 3;
+    tries.textContent = count;
+
+    // add event listener for box clicks
+    document.addEventListener('click',chooseBox);
+
+    // clear message text
+    let message = document.querySelector('.message');
+    message.textContent = '';
     //each box should get a different rgb value
     boxes.forEach(function(box){
         box.style.backgroundColor = `RGB(${ran()}, ${ran()}, ${ran()})`;
@@ -72,6 +84,13 @@ function chooseBox(e){
             setTimeout(function(){
                 message.textContent = '';
             },3000);
+        } else if (count !== 0){
+            tries.textContent = --count;
+        } else{
+            let message = document.querySelector('.message');
+            message.textContent = `Sorry You Ran Out Of chances`;
+            document.removeEventListener('click',chooseBox);
+            setTimeout(generateRGB, 2000);
         }
     }
 }
