@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <title>Color Picker</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="header">
+            <h1 id="rgbDisplay"></h1>
+            <div class="navbar">
+                <h3 class="restart">Restart</h3>
+                <div class="game-mode">
+                    <h3 class="easy">Easy</h3>
+                    <h3 class="hard">Hard</h3>
+                </div>
+            </div>
+        </div>
+        <div class="body">
+            <div class="inner-body">
+                <div class="box-grid">
+                    <div class="box box1"></div>
+                    <div class="box box2"></div>
+                    <div class="box box3"></div>
+                </div>
+                <div class="box-grid hardMode">
+                    <div class="box"></div>
+                    <div class="box"></div>
+                    <div class="box"></div>
+                </div>
+            </div>
+            <h2 class="message"></h2>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>

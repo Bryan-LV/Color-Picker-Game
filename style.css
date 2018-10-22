@@ -1,0 +1,52 @@
+*{
+    box-sizing: border-box;
+}
+
+.container{
+    width:100%;
+    text-align: center;
+}
+
+.navbar{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
+
+.game-mode{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: space-around;
+}
+
+.game-mode .easy{
+    padding-right:5px;
+}
+
+.body{
+    width:100%;
+}
+
+.inner-body{
+    width:90%;
+    margin:auto;
+}
+
+.box-grid{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    width:100%;
+}
+
+.box{
+    width:200px;
+    height:200px;
+    background-color:red;
+    margin:5px;
+    cursor: pointer;
+}
+
+.restart,.easy,.hard{
+    cursor: pointer;
+}
