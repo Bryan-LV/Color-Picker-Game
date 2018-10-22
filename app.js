@@ -41,12 +41,15 @@ function generateRGB(){
     // add event listener for box clicks
     document.addEventListener('click',chooseBox);
 
+    // add boxes back to screen
+
     // clear message text
     let message = document.querySelector('.message');
     message.textContent = '';
     //each box should get a different rgb value
     boxes.forEach(function(box){
         box.style.backgroundColor = `RGB(${ran()}, ${ran()}, ${ran()})`;
+        box.style.display = 'flex';
     });
     // select one box to match header rgb
     let randomBox = Math.round(Math.random() * 2);
@@ -80,12 +83,20 @@ function chooseBox(e){
         if(headerRGB == targetBox){
             let message = document.querySelector('.message');
             message.textContent = `You picked the right RGB Value!`
+            document.removeEventListener('click',chooseBox);
+            // make all boxes the correct RGB color
+            let boxes = document.querySelectorAll('.box');
+            boxes.forEach(function(box){
+                box.style.backgroundColor = headerRGB;
+            });
             setTimeout(generateRGB, 3000)
             setTimeout(function(){
                 message.textContent = '';
             },3000);
         } else if (count !== 0){
             tries.textContent = --count;
+            // take away box if not the right color
+            e.target.style.display = 'none';
         } else{
             let message = document.querySelector('.message');
             message.textContent = `Sorry You Ran Out Of chances`;
